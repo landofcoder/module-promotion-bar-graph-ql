@@ -10,6 +10,20 @@ type Query {
         pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
         currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
    ):Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banners") @doc(description: "The Banners query searches for Banners that match the criteria specified in the search and filter attributes")
+
+    lofPromotionBarListByProduct(
+       product_id: Int @doc(description: "Product Id")
+       filter: BannerFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+       pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+       currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banners") @doc(description: "The Banners query searches for Banners that match the criteria specified in the search and filter attributes")
+
+    lofPromotionBarListByCategory(
+       category_id: Int @doc(description: "Category Id")
+       filter: BannerFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+       pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+       currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banners") @doc(description: "The Banners query searches for Banners that match the criteria specified in the search and filter attributes")
 }
 
 type Banner {
