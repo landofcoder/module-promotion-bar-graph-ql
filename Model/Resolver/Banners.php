@@ -66,8 +66,15 @@ class Banners implements ResolverInterface
         $searchCriteria = $this->searchCriteriaBuilder->build( 'lof_promotion_bar', $args );
         $searchCriteria->setCurrentPage( $args['currentPage'] );
         $searchCriteria->setPageSize( $args['pageSize'] );
-
-        $searchResult = $this->bannerRepository->getList( $searchCriteria );
+        if (isset($args['product_id']) && $args['product_id']) {
+            $searchResult = $this->bannerRepository->getListByProduct($searchCriteria ,$args['product_id'] );
+        }
+        else if (isset($args['category_id']) && $args['category_id']) {
+            $searchResult = $this->bannerRepository->getListByCategory($searchCriteria ,$args['category_id'] );
+        }
+        else {
+            $searchResult = $this->bannerRepository->getList( $searchCriteria );
+        }
 
         return [
             'total_count' => $searchResult->getTotalCount(),
