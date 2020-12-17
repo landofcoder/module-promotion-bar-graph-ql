@@ -1,0 +1,26 @@
+{
+    "name": "landofcoder/module-promotion-bar-graph-ql",
+    "description": "Magento 2 Promotion Bar GraphQl extension",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "landofcoder",
+            "email": "info@landofcoder.com",
+            "homepage": "https://landofcoder.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "1.0.0",
+    "require": {
+        "landofcoder/module-promotion-bar-graph-ql": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lof\\PromotionBarGraphQl\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

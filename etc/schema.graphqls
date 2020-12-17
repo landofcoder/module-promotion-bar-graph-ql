@@ -1,0 +1,65 @@
+
+type Query {
+
+    lofPromotionBarById (
+        banner_id: Int @doc(description: "Query by id.")
+    ) : Banner @resolver( class: "Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banner") @doc(description: "Query by Get banner by id.")
+
+    lofPromotionBarList(
+        filter: BannerFilterInput @doc(description: "Identifies which product attributes to search for and return."),
+        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+   ):Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banners") @doc(description: "The Banners query searches for Banners that match the criteria specified in the search and filter attributes")
+}
+
+type Banner {
+    banner_id  : Int  @doc(description: "Banner id.")
+    banner_name  : String  @doc(description: "Banner Name.")
+    is_enable  : Int  @doc(description: "Enable Banner.")
+    from_date  : String  @doc(description: "From Date.")
+    to_date  : String  @doc(description: "To Date.")
+    conditions_serialized  : String  @doc(description: "Condition Serialized.")
+    actions_serialized  : String  @doc(description: "Action Serialized.")
+    show_product_page  : Int  @doc(description: "Show Product Page.")
+    banner_type  : Int  @doc(description: "Banner Type.")
+    banner_template  : String  @doc(description: "Banner Template.")
+    text_content  : String  @doc(description: "Content.")
+    text_content_color  : String  @doc(description: "Color of Content.")
+    text_content_background_color  : String  @doc(description: "Background Color of Content.")
+    url_title  : String  @doc(description: "Url Title.")
+    url_link  : String  @doc(description: "Url Link.")
+    url_color  : String  @doc(description: "Url Color.")
+    url_background_color  : String  @doc(description: "Url Background Color.")
+    bg_image_url  : String  @doc(description: "Background Image Url.")
+    banner_img  : String  @doc(description: "Banner Image.")
+    banner_link  : String  @doc(description: "Banner Link.")
+    banner_title  : String  @doc(description: "Banner Title.")
+    auto_close_time  : String  @doc(description: "Auto Close Time.")
+    auto_reopen_time  : String  @doc(description: "Auto Reopen Time.")
+    cms_block  : Int  @doc(description: "CMS Block.")
+    display_position  : String  @doc(description: "Display Position.")
+    display_page  : Int  @doc(description: "Display Page.")
+    page_name  : [String]  @doc(description: "Page Name.")
+    priority  : Int  @doc(description: "Priority.")
+    categories  : [Int]  @doc(description: "Categories.")
+    stores  : [Int]  @doc(description: "Stores.")
+    customer_groups  : [Int]  @doc(description: "Customer_groups.")
+
+}
+
+type Banners {
+    total_count: Int @doc(description: "The number of Banners returned")
+    items: [Banner] @doc(description: "An array of Banners that match the specified search criteria")
+}
+
+input BannerFilterInput {
+    banner_id: FilterTypeInput @doc(description: "Banner ID")
+    banner_name: FilterTypeInput @doc(description: "Name")
+    is_enable: FilterTypeInput @doc(description: "Is Enable")
+    banner_type  : FilterTypeInput  @doc(description: "Banner Type.")
+    display_position  : FilterTypeInput  @doc(description: "Display Position.")
+    show_product_page  : FilterTypeInput  @doc(description: "Show Product Page.")
+    url_link  : FilterTypeInput  @doc(description: "Url Link.")
+    cms_block  : FilterTypeInput  @doc(description: "CMS Block.")
+    or: BannerFilterInput @doc(description: "The keyword required to perform a logical OR comparison")
+}
