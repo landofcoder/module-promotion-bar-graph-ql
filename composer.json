@@ -13,7 +13,7 @@
     "minimum-stability": "dev",
     "version": "1.0.0",
     "require": {
-        "landofcoder/module-promotion-bar-graph-ql": "*"
+        "landofcoder/module-promotion-bar": "*"
     },
     "autoload": {
         "psr-4": {
