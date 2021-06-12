@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+		<arguments>
+			<argument name="extendedConfigData" xsi:type="array">
+				<item name="lofpromotionbar_enabled" xsi:type="string">lofpromotionbar/general_settings/enable</item>
+				<item name="lofpromotionbar_display_allow_close" xsi:type="string">lofmobile/display_settings/allow_close</item>
+				<item name="lofpromotionbar_display_time_auto_close" xsi:type="string">lofmobile/display_settings/time_auto_close</item>
+				<item name="lofpromotionbar_display_time_auto_reopen" xsi:type="string">lofmobile/display_settings/time_auto_reopen</item>
+				<item name="lofpromotionbar_display_multiple" xsi:type="string">lofmobile/display_settings/multiple</item>
+				<item name="lofpromotionbar_display_type" xsi:type="string">lofmobile/display_settings/display_type</item>
+				<item name="lofpromotionbar_display_time_change" xsi:type="string">lofmobile/display_settings/time_change</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

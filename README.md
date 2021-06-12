@@ -33,3 +33,33 @@ magento 2 promotion bar graphql extension
  - enable the module by running `php bin/magento module:enable Lof_PromotionBarGraphQl`
  - apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
+
+
+### Query Examples
+
+1. Query get promotion bars of logged customer shopping cart:
+
+```
+{
+customerPromotionBarInCart{
+  items{
+    banner_id
+    banner_name
+    from_date
+    text_content
+    text_content_color
+    text_content_background_color
+    url_color
+    bg_image_url
+    banner_img
+    banner_link
+    banner_title
+    auto_close_time
+    auto_reopen_time
+    display_position
+    priority
+  }
+  total_count
+}
+}
+```

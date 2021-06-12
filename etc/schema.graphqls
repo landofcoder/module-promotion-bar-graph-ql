@@ -1,4 +1,13 @@
-
+type StoreConfig {
+    
+    lofpromotionbar_enabled  : String  @doc(description: "Query by lofpromotionbar_enabled.") 
+    lofpromotionbar_display_allow_close  : String  @doc(description: "Query by lofpromotionbar_display_allow_close.") 
+    lofpromotionbar_display_time_auto_close  : String  @doc(description: "Query by lofpromotionbar_display_time_auto_close.") 
+    lofpromotionbar_display_time_auto_reopen  : String  @doc(description: "Query by lofpromotionbar_display_time_auto_reopen.")
+    lofpromotionbar_display_multiple  : String  @doc(description: "Query by lofpromotionbar_display_multiple.")
+    lofpromotionbar_display_type  : String  @doc(description: "Query by lofpromotionbar_display_type.") 
+    lofpromotionbar_display_time_change  : String  @doc(description: "Query by lofpromotionbar_display_time_change.") 
+}
 type Query {
 
     lofPromotionBarById (
@@ -24,6 +33,8 @@ type Query {
        pageSize: Int = 20 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
     ):Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\Banners") @doc(description: "The Banners query searches for Banners that match the criteria specified in the search and filter attributes")
+
+    customerPromotionBarInCart:Banners @resolver(class: "\\Lof\\PromotionBarGraphQl\\Model\\Resolver\\CustomerBanners") @doc(description: "The Banners are matched with current customer shopping cart.")
 }
 
 type Banner {
